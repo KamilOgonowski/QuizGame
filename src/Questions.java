@@ -16,6 +16,10 @@ public class Questions {
         this.points = points;
     }
 
+
+    public String printQuestion(){
+        return id + ". " + question + "\n" + printAnswers();
+    }
     public String printAnswers(){
         String result = "";
         for (int i = 0 ; i < listOfAnswers.length ; i++){

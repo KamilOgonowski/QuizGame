@@ -3,7 +3,7 @@ public class PoolOfQuestions {
                                     new String[]{"Mutable class","String class", "String class", "StringBuilder class"},
                                    3,2),
 
-                                    new Questions(1,"What does the JVM stands for? ",
+                                    new Questions(2,"What does the JVM stands for? ",
                                     new String[]{"Java Vertical Multiplication","Java Virtual Machine", "Java Virtual Messages", "Join Virtual Machine"},
                                     1,2),
 
