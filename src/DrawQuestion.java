@@ -6,6 +6,7 @@ public class DrawQuestion {
     PoolOfQuestions poolOfQuestions;
     Questions [] listOfQuestions;
     Questions [] generatedListOfQuestions;
+    int [] indexesOfQuestionsUsedToGenerate;
 
 
 
@@ -17,38 +18,52 @@ public class DrawQuestion {
 
     public Questions[] generateList(int numberOfQuestions){  // numberOfQuestions describes how many questions have been set at the very beginning while creating the quiz
         this.generatedListOfQuestions =  new Questions[numberOfQuestions];
+        System.out.println("dlugosc listy wynosi " + generatedListOfQuestions.length);
+
         for (int i = 0; i<numberOfQuestions; i++){
-            if (i==0){
-                generatedListOfQuestions[i] = new Questions(0,"Test?: ",
-                        new String[]{"Mutable class","String class", "String class", "StringBuilder class"},
-                        3,2);
+            this.generatedListOfQuestions[i] = drawQuestionToGeneratedList(numberOfQuestions);
             }
-            generatedListOfQuestions[i] = drawQuestionToGeneratedList();
-        }
         return generatedListOfQuestions; //added to disabled compiletime error - probably this will be correct return, or not return at al will be needed
     }
 
-    public Questions drawQuestionToGeneratedList(){
+
+    public Questions drawQuestionToGeneratedList(int numberOfQuestions){
         while (true){
             int idToBeChecked = random.nextInt(listOfQuestions.length);
-            while(true){
+            indexesOfQuestionsUsedToGenerate = new int [numberOfQuestions];
+//            while(true){
 
-                for (Questions question : generatedListOfQuestions){
+                for (int i = 0; i < numberOfQuestions; i++){
+//                    while(true){
+                        for (int num : indexesOfQuestionsUsedToGenerate){
+                            if (num==idToBeChecked)
+                                break;
+                        }
+                        return listOfQuestions[idToBeChecked];
+//                    }
 
-                    if(question.id == idToBeChecked)
-                        break;
+
+
+//                    if(generatedListOfQuestions[0] == null){
+//                        generatedListOfQuestions[0] = listOfQuestions[idToBeChecked];
+//                        indexesOfQuestions = new int [numberOfQuestions];
+//                        indexesOfQuestions[0]=idToBeChecked;
+//                    } else{
+//                        if()
+//
+//
+//                    }
+//                    if(question.id == null)
+//                        break;
                 }
-                for (int i =0; i<listOfQuestions.length; i++){
-                    if (listOfQuestions[i].id == idToBeChecked){
-                        return listOfQuestions[i];
-//                        generatedListOfQuestions[number] = listOfQuestions[i];
-                    }
-                }
+//                for (int i =0; i<listOfQuestions.length; i++){
+//                    if (listOfQuestions[i].id == idToBeChecked){
+//                        return listOfQuestions[i];
+////                        generatedListOfQuestions[number] = listOfQuestions[i];
+//                    }
+//                }
             }
         }
-
-
-    }
 
     public void printGeneratedList(Questions [] generatedListOfQuestions){
         System.out.println(Arrays.toString(generatedListOfQuestions));

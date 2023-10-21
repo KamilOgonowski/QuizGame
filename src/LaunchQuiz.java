@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class LaunchQuiz {
     public static void main(String[] args) {
         SetTheQuiz setTheQuiz = new SetTheQuiz();
@@ -5,6 +7,11 @@ public class LaunchQuiz {
 
         DrawQuestion createPoolOfQuestions = new DrawQuestion(new PoolOfQuestions());
         createPoolOfQuestions.generateList(6);
+
+        for (int i=0; i< createPoolOfQuestions.generatedListOfQuestions.length; i++){
+            System.out.println(createPoolOfQuestions.generatedListOfQuestions[i].printQuestion());
+        }
+
 
 //        PoolOfQuestions poolOfQuestions = new PoolOfQuestions();
 //        for (Questions question : poolOfQuestions.listOfQuestions){
