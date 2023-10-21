@@ -1,5 +1,5 @@
 public class PoolOfQuestions {
-    Questions [] ListOfQuestions = {new Questions(1,"Which class you can use to create mutable String objects?: ",
+    Questions [] listOfQuestions = {new Questions(1,"Which class you can use to create mutable String objects?: ",
                                         new String[]{"Mutable class","String class", "String class", "StringBuilder class"},
                                         3,2),
 
