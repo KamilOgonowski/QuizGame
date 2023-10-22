@@ -9,8 +9,9 @@ public class LaunchQuiz {
         createPoolOfQuestions.generateList(SetTheQuiz.numberOfQuestions);
 
         for (int i=0; i< createPoolOfQuestions.generatedListOfQuestions.length; i++){
+            Questions question = createPoolOfQuestions.generatedListOfQuestions[i];
             System.out.println( i+1 + createPoolOfQuestions.generatedListOfQuestions[i].printQuestion());
-
+            setTheQuiz.answerTheQuestion(question);
         }
 
     }

@@ -3,9 +3,10 @@ public class Questions {
     String question;
     String[] listOfAnswers;
     int indexOfCorrectAnswer;
-    int points;
-    //points should be replaced by level grouping questions by points
 
+    int points;
+
+    //points should be replaced by level grouping questions by points
 
     // I would like to add every created question to listOfQuestions available in the PoolOfQUestions class
     public Questions(int id, String question, String[] listOfAnswers, int indexOfCOrrectAnswers, int points){
@@ -16,10 +17,10 @@ public class Questions {
         this.points = points;
     }
 
-
     public String printQuestion(){
         return ". " + question + "\n\n" + printAnswers();
     }
+
     public String printAnswers(){
         String result = "";
         for (int i = 0 ; i < listOfAnswers.length ; i++){
@@ -37,6 +38,15 @@ public class Questions {
         }
         return null;
     }
+    public int getIndexOfCorrectAnswer() {
+        return indexOfCorrectAnswer;
+    }
+
+    public int getPoints() {
+        return points;
+    }
+
+
 
 
 
