@@ -30,6 +30,7 @@ public class Questions {
     }
 
     public String indicateOnOption(int num){
+
         switch(num){
             case 0 -> {return "A";}
             case 1 -> {return "B";}

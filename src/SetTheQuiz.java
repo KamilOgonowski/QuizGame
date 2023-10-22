@@ -44,14 +44,18 @@ public class SetTheQuiz {
     }
 
     public int getUserAnswer(User user){
-        String answer = (Console.getStringInput(user.getName() + " it is your turn to answer. Chose correct option A/B/C/D: ")).toUpperCase();
-        switch(answer){
-            case "A" -> {return 0;}
-            case "B" -> {return 1;}
-            case "C" -> {return 2;}
-            case "D" -> {return 3;}
-        }
-        return 99;
+        do{
+            String answer = (Console.getStringInput(user.getName() + " it is your turn to answer. Chose correct option A/B/C/D: ")).toUpperCase();
+            if (answer.equals("A") || answer.equals("B") || answer.equals("C") || answer.equals("D")){
+                switch(answer){
+                    case "A" -> {return 0;}
+                    case "B" -> {return 1;}
+                    case "C" -> {return 2;}
+                    case "D" -> {return 3;}
+                }
+            }
+            System.out.println("You added incorrect answer!!! Try again!");
+        } while(true);
     }
 
 
