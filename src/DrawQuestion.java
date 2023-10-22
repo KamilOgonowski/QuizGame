@@ -19,7 +19,7 @@ public class DrawQuestion {
         for (int i = 0; i<numberOfQuestions; i++){
             this.generatedListOfQuestions[i] = drawQuestionToGeneratedList(i);
             }
-        return generatedListOfQuestions; //added to disabled compiletime error - probably this will be correct return, or not return at al will be needed
+        return generatedListOfQuestions; //added to disable compile-time error - probably this will be correct return, or not return at al will be needed
     }
 
     public Questions drawQuestionToGeneratedList(int indexOfQuestion) {
