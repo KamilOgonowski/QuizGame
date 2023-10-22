@@ -6,16 +6,12 @@ public class LaunchQuiz {
         setTheQuiz.start();
 
         DrawQuestion createPoolOfQuestions = new DrawQuestion(new PoolOfQuestions());
-        createPoolOfQuestions.generateList(6);
+        createPoolOfQuestions.generateList(SetTheQuiz.numberOfQuestions);
 
         for (int i=0; i< createPoolOfQuestions.generatedListOfQuestions.length; i++){
-            System.out.println(createPoolOfQuestions.generatedListOfQuestions[i].printQuestion());
+            System.out.println( i+1 + createPoolOfQuestions.generatedListOfQuestions[i].printQuestion());
+
         }
 
-
-//        PoolOfQuestions poolOfQuestions = new PoolOfQuestions();
-//        for (Questions question : poolOfQuestions.listOfQuestions){
-//            System.out.println(question.printQuestion());
-//        }
     }
 }

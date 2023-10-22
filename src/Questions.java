@@ -18,7 +18,7 @@ public class Questions {
 
 
     public String printQuestion(){
-        return id + ". " + question + "\n" + printAnswers();
+        return ". " + question + "\n\n" + printAnswers();
     }
     public String printAnswers(){
         String result = "";

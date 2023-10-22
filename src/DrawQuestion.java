@@ -8,64 +8,49 @@ public class DrawQuestion {
     Questions [] generatedListOfQuestions;
     int [] indexesOfQuestionsUsedToGenerate;
 
-
-
     public DrawQuestion(PoolOfQuestions poolOfQuestionsObject){
         this.poolOfQuestions = poolOfQuestionsObject;
         this.listOfQuestions = poolOfQuestions.listOfQuestions;
     }
 
-
     public Questions[] generateList(int numberOfQuestions){  // numberOfQuestions describes how many questions have been set at the very beginning while creating the quiz
-        this.generatedListOfQuestions =  new Questions[numberOfQuestions];
-        System.out.println("dlugosc listy wynosi " + generatedListOfQuestions.length);
-
+        generatedListOfQuestions =  new Questions[numberOfQuestions];
+        indexesOfQuestionsUsedToGenerate = new int [numberOfQuestions];
         for (int i = 0; i<numberOfQuestions; i++){
-            this.generatedListOfQuestions[i] = drawQuestionToGeneratedList(numberOfQuestions);
+            this.generatedListOfQuestions[i] = drawQuestionToGeneratedList(i);
             }
         return generatedListOfQuestions; //added to disabled compiletime error - probably this will be correct return, or not return at al will be needed
     }
 
+    public Questions drawQuestionToGeneratedList(int indexOfQuestion) {
+        int idToBeChecked;
+        boolean check;
+        do {
+            idToBeChecked = generateTest();
+            check = false;  // Set check to false initially
 
-    public Questions drawQuestionToGeneratedList(int numberOfQuestions){
-        while (true){
-            int idToBeChecked = random.nextInt(listOfQuestions.length);
-            indexesOfQuestionsUsedToGenerate = new int [numberOfQuestions];
-//            while(true){
-
-                for (int i = 0; i < numberOfQuestions; i++){
-//                    while(true){
-                        for (int num : indexesOfQuestionsUsedToGenerate){
-                            if (num==idToBeChecked)
-                                break;
-                        }
-                        return listOfQuestions[idToBeChecked];
-//                    }
-
-
-
-//                    if(generatedListOfQuestions[0] == null){
-//                        generatedListOfQuestions[0] = listOfQuestions[idToBeChecked];
-//                        indexesOfQuestions = new int [numberOfQuestions];
-//                        indexesOfQuestions[0]=idToBeChecked;
-//                    } else{
-//                        if()
-//
-//
-//                    }
-//                    if(question.id == null)
-//                        break;
+            for (int i = 0; i < indexOfQuestion; i++) {
+                if (indexesOfQuestionsUsedToGenerate[i] == idToBeChecked) {
+                    check = true;  // If duplicate is found, set check to true
+                    break;  // No need to continue checking, exit the loop
                 }
-//                for (int i =0; i<listOfQuestions.length; i++){
-//                    if (listOfQuestions[i].id == idToBeChecked){
-//                        return listOfQuestions[i];
-////                        generatedListOfQuestions[number] = listOfQuestions[i];
-//                    }
-//                }
             }
-        }
+        } while (check);  // Repeat until you find a non-duplicate id
+
+        indexesOfQuestionsUsedToGenerate[indexOfQuestion] = idToBeChecked;
+        return listOfQuestions[idToBeChecked];
+    }
+
 
     public void printGeneratedList(Questions [] generatedListOfQuestions){
         System.out.println(Arrays.toString(generatedListOfQuestions));
+    }
+
+    public void printIndexes(){
+        System.out.println(Arrays.toString(indexesOfQuestionsUsedToGenerate));
+    }
+
+    public int generateTest(){
+        return random.nextInt(listOfQuestions.length);
     }
 }
